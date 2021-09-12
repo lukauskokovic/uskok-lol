@@ -3,7 +3,7 @@ using System.Net;
 
 public static class Request 
 {
-    public static string APIKEY = "RGAPI-3bb0015c-5bee-4814-b425-068319df247f";
+    public static string APIKEY = "key";
     public static T Execute<T>(Region region, string endpoint, string extraData = "")
     {
         WebClient client = new WebClient();
