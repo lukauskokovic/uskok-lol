@@ -5,8 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UskokLol.CustomControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="140" VerticalAlignment="Center" HorizontalAlignment="Left">
+             d:DesignHeight="250" d:DesignWidth="140" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="140" Height="250">
     <Grid>
-        <Border VerticalAlignment="Top"></Border>
+        <Border VerticalAlignment="Top" Background="#e67e22" CornerRadius="16,16,0,0" Height="25">
+            <Label x:Name="PlayerNameText" Content="1234567809123456" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" Foreground="#FFECF0F1"/>
+        </Border>
+        <Border Background="#95a5a6" Margin="0,25,0,0" CornerRadius="0,0,16,16">
+            <Grid>
+                <Ellipse x:Name="PlayerChampionEllipse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60" Height="60" Margin="0,15,0,0" Fill="Red"/>
+                <Ellipse x:Name="PlayerPositionEllipse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="76,50,0,0" Fill="Blue"/>
+                <Label x:Name="PlayerRankText" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Gold III" FontWeight="Normal" FontFamily="Segoe UI Semibold" Margin="0,87,0,0"/>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

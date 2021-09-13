@@ -6,16 +6,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using UskokLol.RiotApi;
 using System.Linq;
+using UskokLol.CustomControls;
 
 namespace UskokLol
 {
     public partial class MainWindow : Window
     {
+        ChampSelectPlayerInfo[] PlayerInfoControls = new ChampSelectPlayerInfo[5];
         public MainWindow()
         {
             InitializeComponent();
             ClientAPI.Load();
             SummonerName.Content = ClientAPI.LocalPlayerName;
+            int i = 0;
+            foreach(var uiControl in ChampSelectGrid.Children.OfType<ChampSelectPlayerInfo>())
+                PlayerInfoControls[i++] = uiControl;
+            
         }
 
         void LoadChampSelect()
@@ -35,7 +41,7 @@ namespace UskokLol
             for (int i = 0; i < Summoners.Length; i++)
             {
                 SummonerDTO Summoner = SummonerV4.SummonerByName(ClientAPI.PlayerRegion, Summoners[i].displayName);
-                
+                PlayerInfoControls[i].SetPlayer(Summoner, PlayersChampSelect[i]);//ClientApiChampSelectPlayer
             }
         }
 

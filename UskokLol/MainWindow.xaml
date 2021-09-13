@@ -1,10 +1,10 @@
-﻿<Window
+﻿<Window xmlns:CustomControls="clr-namespace:UskokLol.CustomControls" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UskokLol"
-        xmlns:UserControls="clr-namespace:UskokLol.UserControls" x:Class="UskokLol.MainWindow"
+        x:Class="UskokLol.MainWindow"
         mc:Ignorable="d"
         Title="Uskok League of legends helper" Height="450" Width="750" AllowsTransparency="True" WindowStyle="None" Background="Transparent">
     <Grid>
@@ -18,9 +18,13 @@
                 <Border Width="25" Height="26" Margin="683,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#2ecc71" CornerRadius="8,8,8,8" x:Name="MinimizeBorder" MouseDown="MinimizeBorderMouseDown" MouseEnter="BorderMouseEnter" MouseLeave="BorderMouseLeave"/>
             </Grid>
         </Border>
-        <Border Background="#FF34495E" Margin="0,42,0,0" x:Name="BodyHeader">
+        <Border Background="#FF34495E" Margin="0,42,0,0" x:Name="BodyHeader" CornerRadius="0,0,16,16">
             <Grid x:Name="ChampSelectGrid">
-
+                <CustomControls:ChampSelectPlayerInfo Width="140" Height="250" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <CustomControls:ChampSelectPlayerInfo Width="140" Height="250" HorizontalAlignment="Left" Margin="155,0,0,0"/>
+                <CustomControls:ChampSelectPlayerInfo Width="140" Height="250" HorizontalAlignment="Left" Margin="305,0,0,0"/>
+                <CustomControls:ChampSelectPlayerInfo Width="140" Height="250" HorizontalAlignment="Left" Margin="455,0,0,0"/>
+                <CustomControls:ChampSelectPlayerInfo Width="140" Height="250" HorizontalAlignment="Left" Margin="605,0,0,0"/>
             </Grid>
         </Border>
     </Grid>
