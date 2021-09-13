@@ -59,11 +59,17 @@ namespace UskokLol.RiotApi
                 JObject obj = Request<JObject>("lol-summoner/v1/current-summoner");
                 LocalPlayerName = (string)obj["displayName"];
             }
-            else Port = -1;
+            else
+            {
+                Port = -1;
+                MessageBox.Show("Please start league");
+            }
         }
 
         public static T Request<T>(string endpoint)
         {
+            if (Port == -1) Load();
+
             WebClient client = new WebClient();
             client.Credentials = new NetworkCredential("riot", AuthToken);
             string url = string.Format("https://127.0.0.1:{0}/{1}", Port, endpoint);
@@ -75,5 +81,10 @@ namespace UskokLol.RiotApi
     {
         public string assignedPosition;
         public long championId, summonerId;
+    }
+
+    public class ClientApiSummoner 
+    {
+        public string displayName, puuid, summonerLevel;
     }
 }

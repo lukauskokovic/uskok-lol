@@ -18,6 +18,27 @@ namespace UskokLol
             SummonerName.Content = ClientAPI.LocalPlayerName;
         }
 
+        void LoadChampSelect()
+        {
+            JToken Session = null;
+            try
+            {
+                Session = ClientAPI.Request<JToken>("lol-champ-select/v1/session");
+            }
+            catch
+            {
+                MessageBox.Show("Not in champ select");
+                return;
+            }
+            ClientApiChampSelectPlayer[] PlayersChampSelect = Session["myTeam"].Children().Select(x => x.ToObject<ClientApiChampSelectPlayer>()).ToArray();
+            ClientApiSummoner[] Summoners = PlayersChampSelect.Select(x => ClientAPI.Request<ClientApiSummoner>("lol-summoner/v1/summoners/" + x.summonerId)).ToArray();
+            for (int i = 0; i < Summoners.Length; i++)
+            {
+                SummonerDTO Summoner = SummonerV4.SummonerByName(ClientAPI.PlayerRegion, Summoners[i].displayName);
+                
+            }
+        }
+
         #region Events
         private void HeaderBorder_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -38,14 +59,12 @@ namespace UskokLol
             brush.Color = Color.FromArgb(alpha, brush.Color.R, brush.Color.G, brush.Color.B);
             send.Background = brush;
         }
-
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ChampionSelectButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            JObject response = ClientAPI.Request<JObject>("lol-champ-select/v1/session");
-            ClientApiChampSelectPlayer[] array = response["myTeam"].Children().Select(x => x.ToObject<ClientApiChampSelectPlayer>()).ToArray();
-            
+            if(e.ClickCount == 1)
+                LoadChampSelect();
         }
     }
 }
