@@ -12,9 +12,12 @@
         </Border>
         <Border Background="#95a5a6" Margin="0,25,0,0" CornerRadius="0,0,16,16">
             <Grid>
-                <Ellipse x:Name="PlayerChampionEllipse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60" Height="60" Margin="0,15,0,0" Fill="Red"/>
-                <Ellipse x:Name="PlayerPositionEllipse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="76,50,0,0" Fill="Blue"/>
-                <Label x:Name="PlayerRankText" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Gold III" FontWeight="Normal" FontFamily="Segoe UI Semibold" Margin="0,87,0,0"/>
+                <Ellipse x:Name="PlayerChampionEllipse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60" Height="60" Margin="0,29,0,0" Fill="#19FFFFFF"/>
+                <Ellipse x:Name="PlayerPositionEllipse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="36" Height="35" Margin="55,64,0,0" Fill="Blue"/>
+                <Ellipse x:Name="MasteryLevelEllipse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="35" Height="35" Margin="-55,64,0,0" Fill="Red"/>
+                <Label x:Name="PlayerRankLabel" VerticalAlignment="Top" HorizontalAlignment="Center" Content="GRANDMASTER I" FontWeight="Normal" FontFamily="Segoe UI Semibold"  Foreground="#FFDCD300"/>
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Margin="0,121,0,0" x:Name="RankedInfoTextBox"> <Run x:Name="LPLabel" Text="100 LP" Foreground="#FF90FF33"/> <Run Text="50%" x:Name="WinRateLabel" Foreground="Black"/> ( <Run Text="500" x:Name="WinsLabel" Foreground="#FF00FFC5"/> <Run Text="500" x:Name="LossesLabel" Foreground="Red"/> )</TextBlock>
+                <Label x:Name="MasteryPointsLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Content="10000000" Foreground="White"/>
             </Grid>
         </Border>
     </Grid>

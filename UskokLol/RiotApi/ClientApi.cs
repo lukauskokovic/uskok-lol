@@ -77,13 +77,13 @@ namespace UskokLol.RiotApi
         }
     }
 
-    public class ClientApiChampSelectPlayer
+    public class SessionPlayer
     {
         public string assignedPosition;
-        public long championId, summonerId;
+        public long championId, summonerId, championPickIntent;
     }
 
-    public class ClientApiSummoner 
+    public class ClientSummoner 
     {
         public string displayName, puuid, summonerLevel;
     }
